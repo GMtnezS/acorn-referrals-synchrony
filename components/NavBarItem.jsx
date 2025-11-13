@@ -1,0 +1,26 @@
+import React from 'react';
+import { usePathname } from 'next/navigation';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser, faPowerOff, faLink } from '@fortawesome/free-solid-svg-icons';
+
+const iconMap = {
+  'user': faUser,
+  'power-off': faPowerOff,
+  'link': faLink
+};
+
+const NavBarItem = ({ children, href, className, icon, tabIndex, testId }) => {
+  const pathname = usePathname();
+  const activeClass = 'navbar-item-active';
+  const activeClasses = className ? `${className} ${activeClass}` : activeClass;
+  return (
+    <span className="d-inline-flex align-items-center navbar-item">
+      {icon && <FontAwesomeIcon icon={iconMap[icon]} className="mr-3" />}
+      <span className={pathname === href ? activeClasses : className} tabIndex={tabIndex} data-testid={testId}>
+        {children}
+      </span>
+    </span>
+  );
+};
+
+export default NavBarItem;
