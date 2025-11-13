@@ -11,9 +11,8 @@ const app = express();
 const port = process.env.API_PORT || 3001;
 const baseUrl = process.env.APP_BASE_URL;
 const domain = process.env.AUTH0_DOMAIN;
-const issuerBaseUrl = `https://$dev-fft1voiyv4aqnike.us.auth0.com`;
+const issuerBaseUrl = process.env.AUTH0_ISSUER_URL;
 const audience = process.env.AUTH0_AUDIENCE;
-console.log(port, baseUrl, domain, issuerBaseUrl, audience)
 
 if (!baseUrl || !domain) {
   throw new Error('Please make sure that the file .env.local is in place and populated');
