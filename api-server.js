@@ -13,6 +13,7 @@ const baseUrl = process.env.APP_BASE_URL;
 const domain = process.env.AUTH0_DOMAIN;
 const issuerBaseUrl = `https://$dev-fft1voiyv4aqnike.us.auth0.com`;
 const audience = process.env.AUTH0_AUDIENCE;
+console.log(port, baseUrl, domain, issuerBaseUrl, audience)
 
 if (!baseUrl || !domain) {
   throw new Error('Please make sure that the file .env.local is in place and populated');
